@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import { dictionaries } from "../../dictionaries";
-import "../../globals.css";
+// import "../../globals.css";
+import "../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,14 +14,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const locale = params.locale;
+  const { locale } = await params;
   const t =
     dictionaries[locale as keyof typeof dictionaries] || dictionaries.ua;
 
