@@ -4,12 +4,12 @@ import type { NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Якщо користувач на головній сторінці, редиректимо на /ua
   if (pathname === "/") {
-    return NextResponse.redirect(new URL("/ua", request.url));
+    const url = request.nextUrl.clone();
+    url.pathname = "/ua";
+    return NextResponse.redirect(url);
   }
 
-  // В інших випадках нічого не змінюємо
   return NextResponse.next();
 }
 
