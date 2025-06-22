@@ -1,17 +1,8 @@
 import { dictionaries } from "../../dictionaries";
 import type { Dictionary } from "../../dictionaries";
 
-// type PageProps = {
-//   params: Promise<{ locale: "ua" | "en" }>;
-// };
-
-type PageProps = {
-  params: { locale: "ua" | "en" };
-};
-
-export default async function Home({ params }: PageProps) {
-  const { locale } = params;
-  // const { locale } = await params; // Очікуємо асинхронно
+export default function Home({ params }: any) {
+  const locale = params.locale as "ua" | "en";
   const t: Dictionary = dictionaries[locale] ?? dictionaries["ua"];
 
   return (
@@ -43,6 +34,53 @@ export default async function Home({ params }: PageProps) {
     </section>
   );
 }
+
+// type PageProps = {
+//   params: Promise<{ locale: "ua" | "en" }>;
+// };
+
+// type PageProps = {
+//   params: { locale: "ua" | "en" };
+// };
+
+// type PageProps = {
+//   params: { locale: "ua" | "en" };
+// };
+
+// export default function Home({ params }: PageProps) {
+//   const { locale } = params;
+//   // const { locale } = await params; // Очікуємо асинхронно
+//   const t: Dictionary = dictionaries[locale] ?? dictionaries["ua"];
+
+//   return (
+//     <section className="px-6 py-12 sm:px-12 sm:py-20 text-gray-800">
+//       <div className="max-w-4xl mx-auto text-center">
+//         <h1 className="text-4xl sm:text-5xl font-bold mb-6">{t.homeTitle}</h1>
+//         <p className="text-lg sm:text-xl leading-relaxed mb-8">
+//           {t.homeDescription}
+//         </p>
+//         <div className="flex justify-center gap-6">
+//           <a
+//             href={`/${locale}/cases`} // уже без помилки
+//             className="bg-black text-white px-6 py-3 rounded-full text-sm sm:text-base hover:bg-gray-800 transition"
+//           >
+//             {t.homeCTA}
+//           </a>
+//         </div>
+//       </div>
+//       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
+//         <div className="p-6 bg-gray-100 rounded-xl shadow">
+//           <h3 className="text-xl font-semibold mb-2">{t.feature1Title}</h3>
+//           <p className="text-gray-600">{t.feature1Description}</p>
+//         </div>
+//         <div className="p-6 bg-gray-100 rounded-xl shadow">
+//           <h3 className="text-xl font-semibold mb-2">{t.feature2Title}</h3>
+//           <p className="text-gray-600">{t.feature2Description}</p>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 // import { dictionaries } from "../../dictionaries";
 // import { Dictionary } from "../../dictionaries"; // шляхи підлаштуй до структури проєкту
