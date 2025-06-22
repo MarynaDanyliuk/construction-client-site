@@ -1,12 +1,17 @@
 import { dictionaries } from "../../dictionaries";
 import type { Dictionary } from "../../dictionaries";
 
+// type PageProps = {
+//   params: Promise<{ locale: "ua" | "en" }>;
+// };
+
 type PageProps = {
-  params: Promise<{ locale: "ua" | "en" }>;
+  params: { locale: "ua" | "en" };
 };
 
 export default async function Home({ params }: PageProps) {
-  const { locale } = await params; // Очікуємо асинхронно
+  const { locale } = params;
+  // const { locale } = await params; // Очікуємо асинхронно
   const t: Dictionary = dictionaries[locale] ?? dictionaries["ua"];
 
   return (
