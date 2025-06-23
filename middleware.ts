@@ -4,9 +4,14 @@ import type { NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Спрацьовує лише на головній сторінці
   if (pathname === "/") {
+    const acceptLang = request.headers.get("accept-language") || "";
+    const hasEnglish = acceptLang.toLowerCase().startsWith("en");
+    const preferredLocale = hasEnglish ? "en" : "ua";
+
     const url = request.nextUrl.clone();
-    url.pathname = "/ua";
+    url.pathname = `/${preferredLocale}`;
     return NextResponse.redirect(url);
   }
 
@@ -14,7 +19,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/"], // middleware спрацьовує лише на /
+  matcher: ["/"], // middleware виконується лише на /
 };
 
 // import { NextResponse } from "next/server";
@@ -23,9 +28,15 @@ export const config = {
 // export function middleware(request: NextRequest) {
 //   const { pathname } = request.nextUrl;
 
-//   // Якщо на корені
 //   if (pathname === "/") {
-//     const locale = "ua"; // тут можна динамічно визначати за мовою браузера
-//     return NextResponse.redirect(new URL(`/${locale}`, request.url));
+//     const url = request.nextUrl.clone();
+//     url.pathname = "/ua";
+//     return NextResponse.redirect(url);
 //   }
+
+//   return NextResponse.next();
 // }
+
+// export const config = {
+//   matcher: ["/"], // middleware спрацьовує лише на /
+// };
