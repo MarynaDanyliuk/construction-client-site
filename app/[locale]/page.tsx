@@ -1,9 +1,14 @@
-import { dictionaries } from "../../dictionaries";
-import type { Dictionary } from "../../dictionaries";
+import { getDictionary } from "../dictionaries/index";
+// import type { Dictionary } from "../dictionaries/types";
 
-export default function Home({ params }: any) {
-  const locale = params.locale as "ua" | "en";
-  const t: Dictionary = dictionaries[locale] ?? dictionaries["ua"];
+type Props = {
+  params: Promise<{ locale: "ua" | "en" }>;
+};
+
+export default async function Home({ params }: Props) {
+  const resolvedParams = await params;
+  const { locale } = resolvedParams;
+  const t = await getDictionary(locale);
 
   return (
     <section className="px-6 py-12 sm:px-12 sm:py-20 text-gray-800">
