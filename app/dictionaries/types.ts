@@ -23,7 +23,11 @@ export type Dictionary = {
   feature1Description: string;
   feature2Title: string;
   feature2Description: string;
+  metaTitle: string;
+  metaDescription: string;
   meta: {
+    metaTitle: string;
+    metaDescription: string;
     servicesTitle: string;
     servicesDescription: string;
     aboutTitle: string;
