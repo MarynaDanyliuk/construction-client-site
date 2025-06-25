@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Служба замовника",
   description: "Якісне супроводження будівництва",
   verification: {
-    google: "google0327f958737a26e3", // Додано тег для верифікації
+    google: "Nd3xkwZ_BVl7tJtoVkm8saw-T12xP08n97ebIZmMlK8", // ← Твій код
   },
 };
 
