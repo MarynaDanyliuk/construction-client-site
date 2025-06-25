@@ -9,13 +9,6 @@ const StructuredData = ({
   data,
   scriptKey = "structured-data",
 }: StructuredDataProps) => {
-  //   const jsonLd = {
-  //     "@context": "https://schema.org",
-  //     "@type": "WebSite",
-  //     name: "construction-client-site",
-  //     url: "https://construction-client-site-9z5w.vercel.app",
-  //   };
-
   return (
     <Head>
       <script
@@ -28,8 +21,3 @@ const StructuredData = ({
 };
 
 export default StructuredData;
-
-/* <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      /> */
