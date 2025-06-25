@@ -3,6 +3,28 @@ import { dictionaries } from "../../dictionaries";
 import Link from "next/link";
 import "../globals.css";
 
+import StructuredData from "../components/StructuredData";
+import OrganizationSchema from "../components/OrganizationSchema";
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Служба замовника",
+  url: "https://construction-client-site-9z5w.vercel.app",
+  inLanguage: ["uk", "en"],
+};
+// const schemaData = {
+//   "@context": "https://schema.org",
+//   "@type": "WebSite",
+//   name: "Мій сайт",
+//   url: "https://example.com",
+//   potentialAction: {
+//     "@type": "SearchAction",
+//     target: "https://example.com/search?q={search_term_string}",
+//     "query-input": "required name=search_term_string",
+//   },
+// };
+
 export default async function LocaleLayout({
   children,
   params,
@@ -19,6 +41,8 @@ export default async function LocaleLayout({
 
   return (
     <div lang={locale}>
+      <StructuredData data={websiteSchema} scriptKey="site-schema" />
+      <OrganizationSchema />
       <div>
         <header className="flex justify-between p-6 border-b border-gray-200">
           <h1 className="text-xl font-bold">{t.siteName}</h1>

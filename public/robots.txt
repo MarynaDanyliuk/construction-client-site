@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://construction-client-site-9z5w.vercel.app
+
+# Sitemaps
+Sitemap: https://construction-client-site-9z5w.vercel.app/sitemap.xml
