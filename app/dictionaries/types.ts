@@ -23,18 +23,20 @@ export type Dictionary = {
   feature1Description: string;
   feature2Title: string;
   feature2Description: string;
+
+  // головні мета-теги для сторінки
   metaTitle: string;
   metaDescription: string;
+
+  // мета-теги для кожної сторінки окремо
   meta: {
-    metaTitle: string;
-    metaDescription: string;
+    homeTitle: string;
+    homeDescription: string;
     servicesTitle: string;
     servicesDescription: string;
     aboutTitle: string;
     aboutDescription: string;
     contactTitle: string;
     contactDescription: string;
-    homeTitle: string;
-    homeDescription: string;
   };
 };

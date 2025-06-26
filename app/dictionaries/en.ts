@@ -32,12 +32,11 @@ const en: Dictionary = {
     "Years of expertise in residential and commercial construction.",
   feature2Title: "Quality",
   feature2Description: "Attention to detail and trusted materials.",
+
   metaTitle: "Home — Construction Client Service",
   metaDescription: "Your trusted partner in construction project management.",
 
   meta: {
-    metaTitle: "Home — Construction Client Service",
-    metaDescription: "Your trusted partner in construction project management.",
     servicesTitle: "Services — Construction Client Service",
     servicesDescription:
       "Explore our range of services tailored to your construction goals.",
