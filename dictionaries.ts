@@ -11,32 +11,30 @@ export interface Dictionary {
   feature2Description: string;
 }
 
-export const dictionaries: Record<"ua" | "en", Dictionary> = {
+export const dictionaries: Record<'ua' | 'en', Dictionary> = {
   ua: {
-    siteName: "Служба замовника",
-    home: "Головна",
-    cases: "Звернення",
-    homeTitle: "Служба підтримки замовника",
-    homeDescription:
-      "Ми допомагаємо вам швидко та зручно вирішити всі ваші питання.",
-    homeCTA: "Переглянути звернення",
-    feature1Title: "Цілодобова підтримка",
-    feature1Description: "Ми завжди поруч — 24/7.",
-    feature2Title: "Зручний інтерфейс",
-    feature2Description: "Проста й ефективна навігація для користувачів.",
+    siteName: 'Служба замовника',
+    home: 'Головна',
+    cases: 'Звернення',
+    homeTitle: 'Служба підтримки замовника',
+    homeDescription: 'Ми допомагаємо вам швидко та зручно вирішити всі ваші питання.',
+    homeCTA: 'Переглянути звернення',
+    feature1Title: 'Цілодобова підтримка',
+    feature1Description: 'Ми завжди поруч — 24/7.',
+    feature2Title: 'Зручний інтерфейс',
+    feature2Description: 'Проста й ефективна навігація для користувачів.',
   },
   en: {
-    siteName: "Customer Portal",
-    home: "Home",
-    cases: "Cases",
-    homeTitle: "Customer Support",
-    homeDescription:
-      "We're here to help you solve your issues quickly and easily.",
-    homeCTA: "View Cases",
-    feature1Title: "24/7 Assistance",
+    siteName: 'Customer Portal',
+    home: 'Home',
+    cases: 'Cases',
+    homeTitle: 'Customer Support',
+    homeDescription: "We're here to help you solve your issues quickly and easily.",
+    homeCTA: 'View Cases',
+    feature1Title: '24/7 Assistance',
     feature1Description: "We're with you around the clock.",
-    feature2Title: "User-Friendly Design",
-    feature2Description: "Clear and intuitive navigation for all users.",
+    feature2Title: 'User-Friendly Design',
+    feature2Description: 'Clear and intuitive navigation for all users.',
   },
 };
 

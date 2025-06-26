@@ -1,16 +1,16 @@
-import { getDictionary } from "../dictionaries/index";
-import type { Dictionary } from "../dictionaries/types";
-import { type Metadata } from "next";
+import { getDictionary } from '../dictionaries/index';
+// import type { Dictionary } from "../dictionaries/types";
+import { type Metadata } from 'next';
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: "ua" | "en" }>;
+  params: Promise<{ locale: 'uk' | 'en' }>;
 }): Promise<Metadata> {
   const resolvedParams = await params;
   const t = await getDictionary(resolvedParams.locale);
 
-  const baseUrl = "https://construction-client-site-9z5w.vercel.app";
+  const baseUrl = 'https://construction-client-site.vercel.app';
   const url = `${baseUrl}/${resolvedParams.locale}`;
 
   return {
@@ -20,15 +20,15 @@ export async function generateMetadata({
       title: t.metaTitle,
       description: t.metaDescription,
       url,
-      siteName: "Служба замовника",
-      locale: resolvedParams.locale === "ua" ? "uk_UA" : "en_US",
-      type: "website",
+      siteName: 'Служба замовника',
+      locale: resolvedParams.locale === 'uk' ? 'uk_UA' : 'en_US',
+      type: 'website',
       images: [
         {
           url: `${baseUrl}/images/og-image.jpg`,
           width: 1200,
           height: 630,
-          alt: "Служба замовника — якість, довіра, ефективність",
+          alt: 'Служба замовника — якість, довіра, ефективність',
         },
       ],
     },
@@ -38,11 +38,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Home({
-  params,
-}: {
-  params: Promise<{ locale: "ua" | "en" }>;
-}) {
+export default async function Home({ params }: { params: Promise<{ locale: 'uk' | 'en' }> }) {
   const resolvedParams = await params;
   const t = await getDictionary(resolvedParams.locale);
 
@@ -50,9 +46,7 @@ export default async function Home({
     <section className="px-6 py-12 sm:px-12 sm:py-20 text-gray-800">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-4xl sm:text-5xl font-bold mb-6">{t.homeTitle}</h1>
-        <p className="text-lg sm:text-xl leading-relaxed mb-8">
-          {t.homeDescription}
-        </p>
+        <p className="text-lg sm:text-xl leading-relaxed mb-8">{t.homeDescription}</p>
         <div className="flex justify-center gap-6">
           <a
             href={`/${resolvedParams.locale}/cases`}

@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import Head from "next/head";
+import Head from 'next/head';
 
 type MetaHeadProps = {
   title?: string;
   description?: string;
   image?: string;
   url?: string;
-  locale?: "uk_UA" | "en_US";
+  locale?: 'uk_UA' | 'en_US';
 };
 
 const MetaHead = ({
-  title = "Служба замовника",
-  description = "Якісне супроводження будівництва",
-  image = "https://construction-client-site-9z5w.vercel.app/images/og-image.jpg",
-  url = "https://construction-client-site-9z5w.vercel.app",
-  locale = "uk_UA",
+  title = 'Служба замовника',
+  description = 'Якісне супроводження будівництва',
+  image = 'https://construction-client-site-9z5w.vercel.app/images/og-image.jpg',
+  url = 'https://construction-client-site-9z5w.vercel.app',
+  locale = 'uk_UA',
 }: MetaHeadProps) => {
   return (
     <Head>

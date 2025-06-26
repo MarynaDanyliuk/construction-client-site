@@ -1,15 +1,15 @@
-import ua from "./ua";
-import en from "./en";
-import type { Dictionary } from "./types"; // якщо в тебе є спільний інтерфейс
+import uk from './uk';
+import en from './en';
+import type { Dictionary } from './types'; // якщо в тебе є спільний інтерфейс
 
-export async function getDictionary(locale: "ua" | "en"): Promise<Dictionary> {
+export async function getDictionary(locale: 'uk' | 'en'): Promise<Dictionary> {
   switch (locale) {
-    case "en":
+    case 'en':
       return en;
-    case "ua":
-      return ua;
+    case 'uk':
+      return uk;
     default:
-      return ua;
+      return uk;
   }
 }
 
