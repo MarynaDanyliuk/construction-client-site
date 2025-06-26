@@ -51,9 +51,3 @@ const en: Dictionary = {
 };
 
 export default en;
-
-// export const en = {
-//   siteName: "Construction Client Service",
-//   home: "Home",
-//   cases: "Cases",
-// };
