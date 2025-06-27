@@ -9,6 +9,12 @@ import StructuredData from '../components/StructuredData';
 import OrganizationSchema from '../components/OrganizationSchema';
 import Head from 'next/head';
 
+import Header from '../components/Header';
+
+{
+  /* <Header locale={locale} t={t} />; */
+}
+
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -56,7 +62,7 @@ export default async function LocaleLayout({
       <OrganizationSchema />
 
       <div>
-        <header className="flex justify-between p-6 border-b border-gray-200">
+        {/* <header className="flex justify-between p-6 border-b border-gray-200">
           <h1 className="text-xl font-bold">{t.siteName}</h1>
           <nav className="space-x-4">
             <Link href={`/${locale}`}>{t.home}</Link>
@@ -67,10 +73,9 @@ export default async function LocaleLayout({
             <Link href={`/${locale}/contact`}>{t.contact.title}</Link>
             {locale === 'uk' ? <Link href="/en">EN</Link> : <Link href="/uk">UK</Link>}
           </nav>
-        </header>
-
+        </header> */}
+        <Header locale={locale} t={t} />
         <main className="min-h-[80vh]">{children}</main>
-
         <footer className="p-6 text-center text-gray-500 border-t border-gray-200">
           © {year} {t.siteName}
         </footer>
