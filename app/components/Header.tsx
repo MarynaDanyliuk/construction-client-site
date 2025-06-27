@@ -45,13 +45,13 @@ export default function Header({ locale, t }: HeaderProps) {
 
         {locale === 'uk' ? (
           <Link href="/en" className="flex flex-col items-center">
-            <Languages size={20} className="block md:hidden lg:hidden" />
-            <span className="hidden md:inline lg:inline">EN</span>
+            {/* <Languages size={20} className="block md:hidden lg:hidden" /> */}
+            <span>EN</span>
           </Link>
         ) : (
           <Link href="/uk" className="flex flex-col items-center">
-            <Languages size={20} className="block md:hidden lg:hidden" />
-            <span className="hidden md:inline lg:inline">UK</span>
+            {/* <Languages size={20} className="block md:hidden lg:hidden" /> */}
+            <span>UK</span>
           </Link>
         )}
         <ThemeToggle />
