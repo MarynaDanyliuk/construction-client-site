@@ -60,7 +60,11 @@ export default async function LocaleLayout({
           <h1 className="text-xl font-bold">{t.siteName}</h1>
           <nav className="space-x-4">
             <Link href={`/${locale}`}>{t.home}</Link>
+
+            <Link href={`/${locale}/about`}>{t.about.title}</Link>
             <Link href={`/${locale}/cases`}>{t.cases}</Link>
+            <Link href={`/${locale}/services`}>{t.services.title}</Link>
+            <Link href={`/${locale}/contact`}>{t.contact.title}</Link>
             {locale === 'uk' ? <Link href="/en">EN</Link> : <Link href="/uk">UK</Link>}
           </nav>
         </header>

@@ -13,8 +13,8 @@ type MetaHeadProps = {
 const MetaHead = ({
   title = 'Служба замовника',
   description = 'Якісне супроводження будівництва',
-  image = 'https://construction-client-site-9z5w.vercel.app/images/og-image.jpg',
-  url = 'https://construction-client-site-9z5w.vercel.app',
+  image = 'https://construction-client-site.vercel.app/images/og-image.jpg',
+  url = 'https://construction-client-site.vercel.app',
   locale = 'uk_UA',
 }: MetaHeadProps) => {
   return (
