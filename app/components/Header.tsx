@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { Home, Info, Briefcase, Hammer, Phone, Languages } from 'lucide-react';
 import type { Dictionary } from '../dictionaries/types';
+// import '../globals.css';
+
+import ThemeToggle from './ThemeToggle';
 
 type HeaderProps = {
   locale: 'uk' | 'en';
@@ -13,36 +16,45 @@ export default function Header({ locale, t }: HeaderProps) {
       <h1 className="text-xl font-bold">{t.siteName}</h1>
       <nav className="flex gap-4 items-center">
         <Link href={`/${locale}`} className="flex flex-col items-center">
-          <Home size={20} />
-          <span className="hidden md:block">{t.home}</span>
+          <Home
+            size={20}
+            className="block md:hidden lg:hidden" // іконка лише на мобілках
+          />
+          <span className="hidden md:inline lg:inline">{t.home}</span>
         </Link>
+
         <Link href={`/${locale}/about`} className="flex flex-col items-center">
-          <Info size={20} />
-          <span className="hidden md:block">{t.about.title}</span>
+          <Info size={20} className="block md:hidden lg:hidden" />
+          <span className="hidden md:inline lg:inline">{t.about.title}</span>
         </Link>
+
         <Link href={`/${locale}/cases`} className="flex flex-col items-center">
-          <Briefcase size={20} />
-          <span className="hidden md:block">{t.cases}</span>
+          <Briefcase size={20} className="block md:hidden lg:hidden" />
+          <span className="hidden md:inline lg:inline">{t.cases}</span>
         </Link>
+
         <Link href={`/${locale}/services`} className="flex flex-col items-center">
-          <Hammer size={20} />
-          <span className="hidden md:block">{t.services.title}</span>
+          <Hammer size={20} className="block md:hidden lg:hidden" />
+          <span className="hidden md:inline lg:inline">{t.services.title}</span>
         </Link>
-        <Link href={`/${locale}/contact`} className="flex flex-col items-center">
-          <Phone size={20} />
-          <span className="hidden md:block">{t.contact.title}</span>
+
+        <Link href={`/${locale}/contacts`} className="flex flex-col items-center">
+          <Phone size={20} className="block md:hidden lg:hidden" />
+          <span className="hidden md:inline lg:inline">{t.contact.title}</span>
         </Link>
+
         {locale === 'uk' ? (
           <Link href="/en" className="flex flex-col items-center">
-            <Languages size={20} />
-            <span className="hidden md:block">EN</span>
+            <Languages size={20} className="block md:hidden lg:hidden" />
+            <span className="hidden md:inline lg:inline">EN</span>
           </Link>
         ) : (
           <Link href="/uk" className="flex flex-col items-center">
-            <Languages size={20} />
-            <span className="hidden md:block">UK</span>
+            <Languages size={20} className="block md:hidden lg:hidden" />
+            <span className="hidden md:inline lg:inline">UK</span>
           </Link>
         )}
+        <ThemeToggle />
       </nav>
     </header>
   );

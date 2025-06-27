@@ -6,19 +6,19 @@ const en: Dictionary = {
   cases: 'Cases',
 
   services: {
-    title: 'Our Services',
+    title: 'Services',
     item1: 'Turnkey Construction',
     item2: 'Design and Planning',
     item3: 'Interior and Renovation',
   },
 
   about: {
-    title: 'About Us',
+    title: 'Team',
     text: 'We are a construction company that builds with trust.',
   },
 
   contact: {
-    title: 'Contact Us',
+    title: 'Feedback',
     text: 'Reach out to us anytime via phone or email.',
   },
 
