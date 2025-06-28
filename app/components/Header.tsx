@@ -58,7 +58,7 @@ export default function Header({ locale, t }: HeaderProps) {
         </div>
 
         {/* мова і тема — на мобілках окремо */}
-        <div className="flex md:hidden gap-2">
+        <div className="flex md:hidden gap-4">
           <LanguageToggle currentLocale={locale} />
           <ThemeToggle currentLocale={locale} />
         </div>

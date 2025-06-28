@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Home, Info, Briefcase, Hammer, Phone } from 'lucide-react';
+import { Home, Info, Briefcase, Hammer, Phone, X } from 'lucide-react';
 import type { Dictionary } from '../dictionaries/types';
 
 type MobileMenuProps = {
@@ -14,77 +14,87 @@ export default function MobileMenu({ locale, t }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 focus:outline-none transition-transform duration-300"
+        className="p-2 focus:outline-none relative z-50"
         aria-label="Toggle menu"
       >
-        <svg
-          className={`w-6 h-6 transform transition-transform duration-300 ${
-            isOpen ? 'rotate-90' : ''
-          }`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d={isOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
-          />
-        </svg>
+        {isOpen ? (
+          <X size={28} />
+        ) : (
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        )}
       </button>
 
+      {/* бекдроп */}
       <div
         className={`
-          absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 shadow-lg rounded border border-gray-200 dark:border-gray-700 z-50
-          transition-all duration-300 ease-in-out
-          ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
+          fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300
+          ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+        `}
+        onClick={() => setIsOpen(false)}
+      ></div>
+
+      {/* full height, 2/3 width */}
+      <div
+        className={`
+          fixed top-0 left-0 w-2/3 h-full bg-white dark:bg-gray-900 z-40
+          flex flex-col items-start p-6 gap-4
+          transform transition-transform duration-300
+          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
         `}
       >
-        <nav className="flex flex-col text-left p-2">
-          <Link
-            href={`/${locale}`}
-            className="flex items-center gap-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
-            onClick={() => setIsOpen(false)}
-          >
-            <Home size={16} />
-            {t.home}
-          </Link>
-          <Link
-            href={`/${locale}/about`}
-            className="flex items-center gap-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
-            onClick={() => setIsOpen(false)}
-          >
-            <Info size={16} />
-            {t.about.title}
-          </Link>
-          <Link
-            href={`/${locale}/cases`}
-            className="flex items-center gap-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
-            onClick={() => setIsOpen(false)}
-          >
-            <Briefcase size={16} />
-            {t.cases}
-          </Link>
-          <Link
-            href={`/${locale}/services`}
-            className="flex items-center gap-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
-            onClick={() => setIsOpen(false)}
-          >
-            <Hammer size={16} />
-            {t.services.title}
-          </Link>
-          <Link
-            href={`/${locale}/contacts`}
-            className="flex items-center gap-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
-            onClick={() => setIsOpen(false)}
-          >
-            <Phone size={16} />
-            {t.contact.title}
-          </Link>
+        <nav className="flex flex-col gap-4 w-full text-left mt-16 text-gray-900 dark:text-white">
+          {[
+            {
+              href: `/${locale}`,
+              label: t.home,
+              icon: <Home size={20} />,
+            },
+            {
+              href: `/${locale}/about`,
+              label: t.about.title,
+              icon: <Info size={20} />,
+            },
+            {
+              href: `/${locale}/cases`,
+              label: t.cases,
+              icon: <Briefcase size={20} />,
+            },
+            {
+              href: `/${locale}/services`,
+              label: t.services.title,
+              icon: <Hammer size={20} />,
+            },
+            {
+              href: `/${locale}/contacts`,
+              label: t.contact.title,
+              icon: <Phone size={20} />,
+            },
+          ].map((item, index) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`
+                flex items-center gap-2 text-lg
+                transform transition duration-500
+                ${isOpen ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'}
+                delay-[${index * 100}ms]
+              `}
+              onClick={() => setIsOpen(false)}
+            >
+              {item.icon}
+              {item.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </div>
