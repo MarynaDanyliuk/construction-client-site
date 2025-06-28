@@ -29,6 +29,10 @@ const MetaHead = ({
       <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content={locale} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Опис вашого зображення" />
+      <meta property="og:locale:alternate" content="en_US" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
