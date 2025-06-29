@@ -24,7 +24,7 @@ const en: Dictionary = {
 
   homeTitle: 'Building with Confidence',
   homeDescription: 'We provide reliable construction services tailored to your needs.',
-  homeCTA: 'View Cases',
+  homeCTA: 'Place Order',
 
   feature1Title: 'Experience',
   feature1Description: 'Years of expertise in residential and commercial construction.',

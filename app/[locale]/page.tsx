@@ -1,6 +1,10 @@
 import { getDictionary } from '../dictionaries';
 import MetaHead from '../components/MetaHead';
 
+import { ArrowRight, Send, Rocket, Sparkles, ExternalLink } from 'lucide-react';
+
+import CTAButton from '../components/CTAButton';
+
 export default async function Home({ params }: { params: Promise<{ locale: 'uk' | 'en' }> }) {
   const { locale } = await params;
   const t = await getDictionary(locale);
@@ -14,12 +18,18 @@ export default async function Home({ params }: { params: Promise<{ locale: 'uk' 
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">{t.homeTitle}</h1>
           <p className="text-lg sm:text-xl leading-relaxed mb-8">{t.homeDescription}</p>
           <div className="flex justify-center gap-6">
-            <a
+            <CTAButton
               href={`/${locale}/cases`}
-              className="bg-black text-white px-6 py-3 rounded-full text-sm sm:text-base hover:bg-gray-800 transition"
+              label={t.homeCTA}
+              icon={<Send size={20} />}
+              variant="primary"
+            />
+            {/* <a
+              href={`/${locale}/cases`}
+              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-4 rounded-full text-base sm:text-lg transition-shadow shadow-md hover:shadow-lg"
             >
               {t.homeCTA}
-            </a>
+            </a> */}
           </div>
         </div>
 
