@@ -1,37 +1,39 @@
 'use client';
 
-import Head from 'next/head';
+import StructuredData from './StructuredData';
 
-const OrganizationSchema = () => {
+type OrganizationSchemaProps = {
+  name?: string;
+  url?: string;
+  logoUrl?: string;
+  phone?: string;
+  social?: string[];
+};
+
+const OrganizationSchema = ({
+  name = 'Служба замовника',
+  url = 'https://construction-client-site.vercel.app',
+  logoUrl = 'https://construction-client-site.vercel.app/logo.png',
+  phone = '+380991234567',
+  social = [],
+}: OrganizationSchemaProps) => {
   const organization = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Служба замовника',
-    url: 'https://construction-client-site.vercel.app',
-    logo: 'https://construction-client-site.vercel.app/logo.png',
+    name,
+    url,
+    logo: logoUrl,
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+380991234567',
+      telephone: phone,
       contactType: 'Customer Support',
-      areaServed: 'UK',
+      areaServed: 'UA',
       availableLanguage: ['Ukrainian', 'English'],
     },
-    sameAs: [
-      'https://www.instagram.com/your_instagram',
-      'https://www.facebook.com/your_facebook',
-      'https://t.me/your_telegram',
-    ],
+    sameAs: social,
   };
 
-  return (
-    <Head>
-      <script
-        type="application/ld+json"
-        key="organization-schema"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }}
-      />
-    </Head>
-  );
+  return <StructuredData data={organization} scriptKey="organization-schema" />;
 };
 
 export default OrganizationSchema;

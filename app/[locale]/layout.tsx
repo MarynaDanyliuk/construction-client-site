@@ -1,19 +1,11 @@
 import { ReactNode } from 'react';
-// import { dictionaries } from "../../dictionaries";
-import { getDictionary } from '../dictionaries/index';
-import Link from 'next/link';
+import { getDictionary } from '../dictionaries';
 import '../globals.css';
 
 import MetaHead from '../components/MetaHead';
 import StructuredData from '../components/StructuredData';
 import OrganizationSchema from '../components/OrganizationSchema';
-import Head from 'next/head';
-
 import Header from '../components/Header';
-
-{
-  /* <Header locale={locale} t={t} />; */
-}
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -31,33 +23,15 @@ export default async function LocaleLayout({
   params: Promise<{ locale: 'uk' | 'en' }>;
 }) {
   const { locale } = await params;
-
-  const resolvedParams = await params;
-  const t = await getDictionary(resolvedParams.locale);
-
-  const baseUrl = 'https://construction-client-site.vercel.app';
-  const url = `${baseUrl}/${locale}`;
+  const t = await getDictionary(locale);
   const year = new Date().getFullYear();
 
   return (
     <>
-      <Head>
-        <link rel="alternate" hrefLang="uk" href="https://construction-client-site.vercel.app/uk" />
-        <link rel="alternate" hrefLang="en" href="https://construction-client-site.vercel.app/en" />
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href="https://construction-client-site.vercel.app"
-        />
-      </Head>
-      {/* ✅ Мета-теги */}
-      <MetaHead
-        title={t.metaTitle}
-        description={t.metaDescription}
-        url={url}
-        locale={locale === 'uk' ? 'uk_UA' : 'en_US'}
-      />
-      {/* ✅ Структуровані дані */}
+      {/* 🌐 Альтернативні посилання для SEO */}
+      <MetaHead title={t.metaTitle} description={t.metaDescription} localeCode={locale} />
+
+      {/* 📦 Структуровані дані */}
       <StructuredData data={websiteSchema} scriptKey="site-schema" />
       <OrganizationSchema />
 
