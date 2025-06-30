@@ -1,16 +1,14 @@
 // app/[locale]/contacts/page.tsx
 
 import { getDictionary } from '../../dictionaries';
-import type { Dictionary } from '../../dictionaries/types';
 
 type ContactsPageProps = {
-  params: {
-    locale: 'uk' | 'en';
-  };
+  params: Promise<{ locale: 'uk' | 'en' }>;
 };
 
 export default async function ContactsPage({ params }: ContactsPageProps) {
-  const t: Dictionary = await getDictionary(params.locale);
+  const { locale } = await params;
+  const t = await getDictionary(locale);
 
   return (
     <div className="max-w-4xl mx-auto p-6">

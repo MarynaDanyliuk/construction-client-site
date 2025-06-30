@@ -1,14 +1,14 @@
 // app/[locale]/order/page.tsx
 
-import type { Dictionary } from '../../dictionaries/types';
 import { getDictionary } from '../../dictionaries';
 
 type OrderPageProps = {
-  params: { locale: 'uk' | 'en' };
+  params: Promise<{ locale: 'uk' | 'en' }>;
 };
 
 export default async function OrderPage({ params }: OrderPageProps) {
-  const t: Dictionary = await getDictionary(params.locale);
+  const { locale } = await params;
+  const t = await getDictionary(locale);
 
   return (
     <div className="max-w-2xl mx-auto p-6">
