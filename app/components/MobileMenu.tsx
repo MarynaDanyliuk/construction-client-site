@@ -89,7 +89,7 @@ export default function MobileMenu({ locale, t }: MobileMenuProps) {
                 icon: <Info size={20} />,
               },
               {
-                href: `/${locale}/cases`,
+                href: `/${locale}/portfolio`,
                 label: t.cases,
                 icon: <Briefcase size={20} />,
               },

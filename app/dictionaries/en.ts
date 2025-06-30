@@ -5,17 +5,40 @@ const en: Dictionary = {
   home: 'Home',
   cases: 'Portfolio',
 
-  services: {
-    title: 'Services',
-    item1: 'Turnkey Construction',
-    item2: 'Design and Planning',
-    item3: 'Interior and Renovation',
-  },
+services: {
+  title: "Our Services",
+  description:
+    "We offer a full range of services for your construction or engineering project: from design to technical supervision.",
+  item1Title: "Design",
+  item1Description:
+    "We create functional and aesthetic projects of any complexity, adapted to your needs.",
+  item2Title: "Construction",
+  item2Description:
+    "We ensure high-quality and safe construction using modern technologies and materials.",
+  item3Title: "Technical Supervision",
+  item3Description:
+    "We monitor the work at all stages to ensure compliance with the project and standards.",
+  item4Title: "Consulting",
+  item4Description:
+    "Consulting and support for making informed decisions in your project.",
+},
 
-  about: {
-    title: 'Team',
-    text: 'We are a construction company that builds with trust.',
-  },
+about: {
+  title: "About Us",
+  text1:
+    "We are a team of professionals offering comprehensive services in construction, design, and renovation. Our approach is based on transparency, responsibility, and high quality standards.",
+  text2:
+    "We accompany each project from idea to implementation, helping clients make effective decisions at every stage. Our goal is to create spaces that are pleasant to live and work in.",
+  text3:
+    "By choosing us, you get a reliable partner for implementing construction solutions of any complexity.",
+  teamTitle: "Our Team",
+  team: [
+    "Oleksii — Architect",
+    "Maryna — Designer",
+    "Ihor — Engineer",
+    "Svitlana — Project Manager"
+  ]
+},
 
   contacts: {
     title: 'Contacts',
@@ -27,9 +50,27 @@ const en: Dictionary = {
   },
 
   // portfolio
-  portfolio: {
-    title: 'Portfolio',
-    text: 'Examples of our completed projects and effective solutions.',
+portfolio: {
+    title: "Our Projects",
+    text: "Here you can explore examples of our implemented solutions and completed projects. We are proud of every project that has helped our clients achieve their goals.",
+    projects: [
+      {
+        name: "Residential Complex 'Sunny'",
+        description: "Full construction support from project design to commissioning.",
+      },
+      {
+        name: "Business Center 'Skyline'",
+        description: "Implementation of innovative engineering solutions in a modern commercial space.",
+      },
+      {
+        name: "School #12 Reconstruction",
+        description: "Safety, comfort, and modern technologies for the educational institution.",
+      },
+      {
+        name: "Eco Market Store",
+        description: "Space optimization and implementation of energy-efficient solutions.",
+      },
+    ],
   },
 
   // order

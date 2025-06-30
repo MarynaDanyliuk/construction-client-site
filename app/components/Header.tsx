@@ -37,7 +37,7 @@ export default function Header({ locale, t }: HeaderProps) {
             <span className="hidden lg:block">{t.about.title}</span>
           </Link>
 
-          <Link href={`/${locale}/cases`} className="flex flex-col items-center">
+          <Link href={`/${locale}/portfolio`} className="flex flex-col items-center">
             <Briefcase size={20} className="block lg:hidden" />
             <span className="hidden lg:block">{t.cases}</span>
           </Link>

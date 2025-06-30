@@ -1,17 +1,32 @@
+export type Project = {
+  name: string;
+  description: string;
+};
+
 export type Dictionary = {
   siteName: string;
   home: string;
   cases: string;
-  services: {
-    title: string;
-    item1: string;
-    item2: string;
-    item3: string;
-  };
-  about: {
-    title: string;
-    text: string;
-  };
+services: {
+  title: string;
+  description: string;
+  item1Title: string;
+  item1Description: string;
+  item2Title: string;
+  item2Description: string;
+  item3Title: string;
+  item3Description: string;
+  item4Title: string;
+  item4Description: string;
+};
+ about: {
+  title: string;
+  text1: string;
+  text2: string;
+  text3: string;
+  teamTitle: string;
+  team: string[];
+};
   contacts: {
     title: string;
     text: string;
@@ -32,11 +47,11 @@ export type Dictionary = {
   feature4Title: string;
   feature4Description: string;
 
-  // Portfolio
-  portfolio: {
-    title: string;
-    text: string;
-  };
+portfolio: {
+  title: string;
+  text: string;
+  projects: Project[];
+};
 
   // Order / Contact Form
   orderTitle: string;
