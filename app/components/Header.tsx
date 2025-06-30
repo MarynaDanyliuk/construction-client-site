@@ -47,10 +47,10 @@ export default function Header({ locale, t }: HeaderProps) {
             <span className="hidden lg:block">{t.services.title}</span>
           </Link>
 
-          <Link href={`/${locale}/contacts`} className="flex flex-col items-center">
+          {/* <Link href={`/${locale}/contacts`} className="flex flex-col items-center">
             <Phone size={20} className="block lg:hidden" />
             <span className="hidden lg:block">{t.contact.title}</span>
-          </Link>
+          </Link> */}
 
           {/* мова і тема — після меню на md+ */}
           <LanguageToggle currentLocale={locale} />

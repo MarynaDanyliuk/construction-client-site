@@ -30,6 +30,12 @@ const en: Dictionary = {
   feature1Description: 'Years of expertise in residential and commercial construction.',
   feature2Title: 'Quality',
   feature2Description: 'Attention to detail and trusted materials.',
+  feature3Title: 'Reliability',
+  feature3Description:
+    'We ensure transparent management and accountability at every stage of construction.',
+  feature4Title: 'Innovation',
+  feature4Description:
+    'We implement modern technologies to improve efficiency and quality of work.',
 
   metaTitle: 'Home — Construction Client Service',
   metaDescription: 'Your trusted partner in construction project management.',

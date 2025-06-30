@@ -4,6 +4,7 @@ import MetaHead from '../components/MetaHead';
 import { ArrowRight, Send, Rocket, Sparkles, ExternalLink } from 'lucide-react';
 
 import CTAButton from '../components/CTAButton';
+import FeatureCard from '../components/FeatureCard';
 
 export default async function Home({ params }: { params: Promise<{ locale: 'uk' | 'en' }> }) {
   const { locale } = await params;
@@ -24,24 +25,22 @@ export default async function Home({ params }: { params: Promise<{ locale: 'uk' 
               icon={<Send size={20} />}
               variant="primary"
             />
-            {/* <a
-              href={`/${locale}/cases`}
-              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-8 py-4 rounded-full text-base sm:text-lg transition-shadow shadow-md hover:shadow-lg"
-            >
-              {t.homeCTA}
-            </a> */}
           </div>
         </div>
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <div className="p-6 bg-gray-100 rounded-xl shadow">
+          <FeatureCard title={t.feature1Title} description={t.feature1Description} />
+          <FeatureCard title={t.feature2Title} description={t.feature2Description} />
+          <FeatureCard title={t.feature3Title} description={t.feature3Description} />
+          <FeatureCard title={t.feature4Title} description={t.feature4Description} />
+          {/* <div className="p-6 bg-gray-100 rounded-xl shadow">
             <h3 className="text-xl font-semibold mb-2">{t.feature1Title}</h3>
             <p className="text-gray-600">{t.feature1Description}</p>
           </div>
           <div className="p-6 bg-gray-100 rounded-xl shadow">
             <h3 className="text-xl font-semibold mb-2">{t.feature2Title}</h3>
             <p className="text-gray-600">{t.feature2Description}</p>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

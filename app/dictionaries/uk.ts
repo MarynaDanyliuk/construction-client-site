@@ -3,10 +3,10 @@ import type { Dictionary } from './types';
 const uk: Dictionary = {
   siteName: 'Служба Замовника',
   home: 'Головна',
-  cases: 'Кейси',
+  cases: 'Портфоліо',
 
   services: {
-    title: 'Наші послуги',
+    title: 'Послуги',
     item1: 'Будівництво під ключ',
     item2: 'Проєктування та планування',
     item3: 'Ремонт і оздоблення',
@@ -30,6 +30,12 @@ const uk: Dictionary = {
   feature1Description: 'Багаторічна експертиза у житловому та комерційному будівництві.',
   feature2Title: 'Якість',
   feature2Description: 'Сучасні технології та перевірені матеріали.',
+  feature3Title: 'Надійність',
+  feature3Description:
+    'Ми гарантуємо прозоре управління та відповідальність на кожному етапі будівництва.',
+  feature4Title: 'Інновації',
+  feature4Description:
+    'Ми впроваджуємо сучасні технології для підвищення ефективності та якості робіт.',
 
   metaTitle: 'Головна — Служба Замовника',
   metaDescription:
