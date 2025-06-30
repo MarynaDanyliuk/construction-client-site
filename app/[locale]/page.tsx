@@ -20,7 +20,7 @@ export default async function Home({ params }: { params: Promise<{ locale: 'uk' 
           <p className="text-lg sm:text-xl leading-relaxed mb-8">{t.homeDescription}</p>
           <div className="flex justify-center gap-6">
             <CTAButton
-              href={`/${locale}/cases`}
+              href={`/${locale}/order`}
               label={t.homeCTA}
               icon={<Send size={20} />}
               variant="primary"

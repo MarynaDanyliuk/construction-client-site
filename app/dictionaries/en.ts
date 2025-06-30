@@ -3,7 +3,7 @@ import type { Dictionary } from './types';
 const en: Dictionary = {
   siteName: 'Construction Client Service',
   home: 'Home',
-  cases: 'Cases',
+  cases: 'Portfolio',
 
   services: {
     title: 'Services',
@@ -18,9 +18,26 @@ const en: Dictionary = {
   },
 
   contact: {
-    title: 'Feedback',
+    title: 'Contacts',
     text: 'Reach out to us anytime via phone or email.',
+    description: 'We are always in touch, contact us in any way convenient for you.',
+    addressTitle: 'Address',
+    phoneTitle: 'Phone',
+    socialTitle: 'Social Media',
   },
+
+  // portfolio
+  portfolio: {
+    title: 'Portfolio',
+    text: 'Examples of our completed projects and effective solutions.',
+  },
+
+  // order
+  orderTitle: 'Order a Service',
+  orderDescription: 'Fill out the form below and we will contact you as soon as possible.',
+  formName: 'Your Name',
+  formMessage: 'Your Message',
+  formSubmit: 'Send',
 
   homeTitle: 'Building with Confidence',
   homeDescription: 'We provide reliable construction services tailored to your needs.',
@@ -41,14 +58,18 @@ const en: Dictionary = {
   metaDescription: 'Your trusted partner in construction project management.',
 
   meta: {
+    homeTitle: 'Construction Client Service',
+    homeDescription: 'Trusted partner for construction solutions.',
     servicesTitle: 'Services — Construction Client Service',
     servicesDescription: 'Explore our range of services tailored to your construction goals.',
     aboutTitle: 'About — Construction Client Service',
     aboutDescription: 'Learn more about our mission and the team behind the work.',
-    contactTitle: 'Contact — Construction Client Service',
+    contactTitle: 'Contacts — Construction Client Service',
     contactDescription: 'Get in touch to discuss your next project.',
-    homeTitle: 'Construction Client Service',
-    homeDescription: 'Trusted partner for construction solutions.',
+    portfolioTitle: 'Portfolio — Construction Client Service',
+    portfolioDescription: 'Explore our successfully completed projects and achievements.',
+    orderTitle: 'Order a Service — Construction Client Service',
+    orderDescription: 'Quickly order your service online through our simple form.',
   },
 };
 

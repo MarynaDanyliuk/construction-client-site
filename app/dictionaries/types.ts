@@ -15,6 +15,10 @@ export type Dictionary = {
   contact: {
     title: string;
     text: string;
+    description: string;
+    addressTitle: string;
+    phoneTitle: string;
+    socialTitle: string;
   };
   homeTitle: string;
   homeDescription: string;
@@ -27,6 +31,19 @@ export type Dictionary = {
   feature3Description: string;
   feature4Title: string;
   feature4Description: string;
+
+  // Portfolio
+  portfolio: {
+    title: string;
+    text: string;
+  };
+
+  // Order / Contact Form
+  orderTitle: string;
+  orderDescription: string;
+  formName: string;
+  formMessage: string;
+  formSubmit: string;
 
   // головні мета-теги для сторінки
   metaTitle: string;
@@ -42,5 +59,9 @@ export type Dictionary = {
     aboutDescription: string;
     contactTitle: string;
     contactDescription: string;
+    portfolioTitle: string;
+    portfolioDescription: string;
+    orderTitle: string;
+    orderDescription: string;
   };
 };
