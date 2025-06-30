@@ -17,7 +17,7 @@ const en: Dictionary = {
     text: 'We are a construction company that builds with trust.',
   },
 
-  contact: {
+  contacts: {
     title: 'Contacts',
     text: 'Reach out to us anytime via phone or email.',
     description: 'We are always in touch, contact us in any way convenient for you.',

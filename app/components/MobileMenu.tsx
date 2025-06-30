@@ -100,7 +100,7 @@ export default function MobileMenu({ locale, t }: MobileMenuProps) {
               },
               {
                 href: `/${locale}/contacts`,
-                label: t.contact.title,
+                label: t.contacts.title,
                 icon: <Phone size={20} />,
               },
             ].map((item) => (

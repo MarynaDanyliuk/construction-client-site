@@ -12,7 +12,7 @@ export type Dictionary = {
     title: string;
     text: string;
   };
-  contact: {
+  contacts: {
     title: string;
     text: string;
     description: string;
