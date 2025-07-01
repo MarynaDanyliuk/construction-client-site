@@ -1,4 +1,5 @@
 import './globals.css';
+import { inter, poppins, playfair } from './fonts'
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import Script from 'next/script'; // ← для аналітики (наприклад, Google Analytics)
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="uk" suppressHydrationWarning>
+    <html lang="uk" suppressHydrationWarning className={`${inter.variable} ${playfair.variable} font-sans`}>
       <head>
         {/* Google Fonts (опційно) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,7 +60,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         />
       </head>
-      <body>
+      <body className={`${inter.variable} ${playfair.variable} font-sans`}>
         {children}
         {/* Аналітика (приклад для Google Analytics 4) */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX" />

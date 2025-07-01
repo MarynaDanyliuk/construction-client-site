@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
 import { getDictionary } from '../dictionaries';
+
 import '../globals.css';
+import { inter, playfair } from '../fonts';
 
 import MetaHead from '../components/MetaHead';
 import StructuredData from '../components/StructuredData';
@@ -35,7 +37,7 @@ export default async function LocaleLayout({
       <StructuredData data={websiteSchema} scriptKey="site-schema" />
       <OrganizationSchema />
 
-      <div>
+      <div >
         <Header locale={locale} t={t} />
         <main className="min-h-[80vh]">{children}</main>
         <footer className="p-6 text-center text-gray-500 border-t border-gray-200">
