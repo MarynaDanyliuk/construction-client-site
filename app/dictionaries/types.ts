@@ -60,6 +60,13 @@ portfolio: {
   formMessage: string;
   formSubmit: string;
 
+  // blog
+  
+    blog: {
+  title: string;
+  back: string;
+};
+
   // головні мета-теги для сторінки
   metaTitle: string;
   metaDescription: string;

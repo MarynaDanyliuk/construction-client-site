@@ -49,6 +49,11 @@ about: {
     socialTitle: 'Social Media',
   },
 
+  blog: {
+  title: "Blog & News",
+  back: "Back to blog",
+},
+
   // portfolio
 portfolio: {
     title: "Our Projects",

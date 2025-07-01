@@ -1,7 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { Home, Info, Briefcase, Hammer, Phone } from 'lucide-react';
+import {
+  Home,
+  Info,
+  Briefcase,
+  Hammer,
+  Phone,
+  Newspaper,
+} from 'lucide-react';
 import type { Dictionary } from '../dictionaries/types';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
@@ -47,10 +54,16 @@ export default function Header({ locale, t }: HeaderProps) {
             <span className="hidden lg:block">{t.services.title}</span>
           </Link>
 
-          {/* <Link href={`/${locale}/contacts`} className="flex flex-col items-center">
+          <Link href={`/${locale}/contacts`} className="flex flex-col items-center">
             <Phone size={20} className="block lg:hidden" />
-            <span className="hidden lg:block">{t.contact.title}</span>
-          </Link> */}
+            <span className="hidden lg:block">{t.contacts.title}</span>
+          </Link>
+
+          {/* 🔥 Новий пункт меню — Блог */}
+          <Link href={`/${locale}/blog`} className="flex flex-col items-center">
+            <Newspaper size={20} className="block lg:hidden" />
+            <span className="hidden lg:block">{t.blog.title}</span>
+          </Link>
 
           {/* мова і тема — після меню на md+ */}
           <LanguageToggle currentLocale={locale} />

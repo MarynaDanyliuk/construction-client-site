@@ -2,7 +2,15 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Home, Info, Briefcase, Hammer, Phone, X } from 'lucide-react';
+import {
+  Home,
+  Info,
+  Briefcase,
+  Hammer,
+  Phone,
+  X,
+  Newspaper,
+} from 'lucide-react';
 import type { Dictionary } from '../dictionaries/types';
 
 type MobileMenuProps = {
@@ -20,14 +28,12 @@ export default function MobileMenu({ locale, t }: MobileMenuProps) {
       document.body.classList.remove('overflow-hidden');
     }
     return () => {
-      // cleanup при демонтажі
       document.body.classList.remove('overflow-hidden');
     };
   }, [isOpen]);
 
   return (
     <>
-      {/* бургер завжди в DOM, просто прихований, коли відкрито меню */}
       <button
         onClick={() => setIsOpen(true)}
         className={`p-2 focus:outline-none relative z-50 transition-opacity duration-300 ${
@@ -36,29 +42,16 @@ export default function MobileMenu({ locale, t }: MobileMenuProps) {
         aria-label="Open menu"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 6h16M4 12h16M4 18h16"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
 
-      {/* бекдроп + меню */}
-      <div
-        className={`
-          fixed inset-0 z-40
-          ${isOpen ? 'block' : 'hidden'}
-        `}
-      >
-        {/* бекдроп */}
+      <div className={`fixed inset-0 z-40 ${isOpen ? 'block' : 'hidden'}`}>
         <div
           className="absolute inset-0 bg-black/10 transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
         ></div>
 
-        {/* меню */}
         <div
           className={`
             fixed top-0 left-0 h-full w-2/3
@@ -76,33 +69,16 @@ export default function MobileMenu({ locale, t }: MobileMenuProps) {
           >
             <X size={28} />
           </button>
+
           <nav className="flex flex-col gap-4 w-full text-left">
             {[
-              {
-                href: `/${locale}`,
-                label: t.home,
-                icon: <Home size={20} />,
-              },
-              {
-                href: `/${locale}/about`,
-                label: t.about.title,
-                icon: <Info size={20} />,
-              },
-              {
-                href: `/${locale}/portfolio`,
-                label: t.cases,
-                icon: <Briefcase size={20} />,
-              },
-              {
-                href: `/${locale}/services`,
-                label: t.services.title,
-                icon: <Hammer size={20} />,
-              },
-              {
-                href: `/${locale}/contacts`,
-                label: t.contacts.title,
-                icon: <Phone size={20} />,
-              },
+              { href: `/${locale}`, label: t.home, icon: <Home size={20} /> },
+              { href: `/${locale}/about`, label: t.about.title, icon: <Info size={20} /> },
+              { href: `/${locale}/portfolio`, label: t.cases, icon: <Briefcase size={20} /> },
+              { href: `/${locale}/services`, label: t.services.title, icon: <Hammer size={20} /> },
+              { href: `/${locale}/contacts`, label: t.contacts.title, icon: <Phone size={20} /> },
+              // 🆕 Додано блог
+              { href: `/${locale}/blog`, label: t.blog.title, icon: <Newspaper size={20} /> },
             ].map((item) => (
               <Link
                 key={item.href}
