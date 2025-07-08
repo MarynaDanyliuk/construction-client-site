@@ -7,8 +7,8 @@ type ContactsPageProps = {
 };
 
 export default async function ContactsPage({ params }: ContactsPageProps) {
-  const { locale } = params;
-  const t = await getDictionary(locale);
+  const { locale } = await params;
+  const t = getDictionary(locale);
 
   return (
     <div className="max-w-4xl mx-auto p-6">

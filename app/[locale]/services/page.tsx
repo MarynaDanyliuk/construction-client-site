@@ -7,8 +7,8 @@ type ServicesPageProps = {
   params: { locale: 'uk' | 'en' };
 };
 
-export default function ServicesPage({ params }: ServicesPageProps) {
-  const { locale } = params;
+export default async function ServicesPage({ params }: ServicesPageProps) {
+  const { locale } = await params;
   const dict = getDictionary(locale);
 
   return (

@@ -7,8 +7,8 @@ type OrderPageProps = {
 };
 
 export default async function OrderPage({ params }: OrderPageProps) {
-  const { locale } = params;
-  const t = await getDictionary(locale);
+  const { locale } = await params;
+  const t = getDictionary(locale);
 
   return (
     <div className="max-w-2xl mx-auto p-6">

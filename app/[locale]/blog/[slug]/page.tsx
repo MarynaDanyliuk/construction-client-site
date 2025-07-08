@@ -13,7 +13,7 @@ type BlogPostPageProps = {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { locale, slug } = params;
-  const dict = await getDictionary(locale);
+  const dict = getDictionary(locale);
 
   const post = posts.find((p) => p.slug === slug);
 

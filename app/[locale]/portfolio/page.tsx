@@ -7,8 +7,8 @@ type PortfolioPageProps = {
 };
 
 export default async function PortfolioPage({ params }: PortfolioPageProps) {
-   const { locale } = params;
-  const t = await getDictionary(locale);
+  const { locale } = await params;
+  const t = getDictionary(locale);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">

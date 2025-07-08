@@ -5,8 +5,8 @@ type AboutPageProps = {
 };
 
 export default async function AboutPage({ params }: AboutPageProps) {
-  const { locale } = params;
-  const t = await getDictionary(locale);
+  const { locale } = await params;
+  const t = getDictionary(locale);
 
   return (
     <section className="p-8 max-w-4xl mx-auto">

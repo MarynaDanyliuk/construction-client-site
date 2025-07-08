@@ -8,8 +8,13 @@ type BlogPageProps = {
   params: { locale: Locale };
 };
 
+
+
 export default async function BlogPage({ params }: BlogPageProps) {
-  const dict = await getDictionary(params.locale);
+  const dict =  getDictionary(params.locale);
+
+//   console.log("params", params);
+// console.log("locale", params.locale);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
