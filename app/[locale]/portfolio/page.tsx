@@ -3,11 +3,11 @@
 import { getDictionary } from '../../dictionaries';
 
 type PortfolioPageProps = {
-  params: Promise<{ locale: 'uk' | 'en' }>;
+  params: { locale: 'uk' | 'en' };
 };
 
 export default async function PortfolioPage({ params }: PortfolioPageProps) {
-   const { locale } = await params;
+   const { locale } = params;
   const t = await getDictionary(locale);
 
   return (

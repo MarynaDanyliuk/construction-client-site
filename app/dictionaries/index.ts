@@ -1,8 +1,8 @@
 import uk from './uk';
 import en from './en';
-import type { Dictionary } from './types'; // якщо в тебе є спільний інтерфейс
+import type { Dictionary } from './types';
 
-export async function getDictionary(locale: 'uk' | 'en'): Promise<Dictionary> {
+export function getDictionary(locale: 'uk' | 'en'): Dictionary {
   switch (locale) {
     case 'en':
       return en;
@@ -12,6 +12,7 @@ export async function getDictionary(locale: 'uk' | 'en'): Promise<Dictionary> {
       return uk;
   }
 }
+
 
 // import { ua } from "./ua";
 // import { en } from "./en";

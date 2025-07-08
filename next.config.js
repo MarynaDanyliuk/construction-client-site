@@ -1,8 +1,22 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {};
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Інші параметри (за потреби додай сюди)
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  experimental: {
+    // сюди можна додавати лише дійсні експериментальні опції
+    // наприклад: serverActions: true
+  },
+};
 
 export default nextConfig;
+
+// import type { NextConfig } from 'next';
+
+// const nextConfig: NextConfig = {};
+
+// export default nextConfig;
 
 // import type { NextConfig } from "next";
 

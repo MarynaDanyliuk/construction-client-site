@@ -3,11 +3,11 @@
 import { getDictionary } from '../../dictionaries';
 
 type ContactsPageProps = {
-  params: Promise<{ locale: 'uk' | 'en' }>;
+  params: { locale: 'uk' | 'en' };
 };
 
 export default async function ContactsPage({ params }: ContactsPageProps) {
-  const { locale } = await params;
+  const { locale } = params;
   const t = await getDictionary(locale);
 
   return (

@@ -1,48 +1,200 @@
 import { getDictionary } from '../dictionaries';
-import MetaHead from '../components/MetaHead';
-
-import { ArrowRight, Send, Rocket, Sparkles, ExternalLink } from 'lucide-react';
-
 import CTAButton from '../components/CTAButton';
 import FeatureCard from '../components/FeatureCard';
+import { Send } from 'lucide-react';
+import type { Metadata } from 'next';
 
-export default async function Home({ params }: { params: Promise<{ locale: 'uk' | 'en' }> }) {
+type PageParams = {
+  locale: 'uk' | 'en';
+};
+
+type PageProps = {
+  params: PageParams;
+};
+
+// 🧭 Статичні маршрути — ключ до синхронного params
+// export function generateStaticParams() {
+//   return [{ locale: 'uk' }, { locale: 'en' }];
+// }
+
+// 🧠 SEO мета-дані — синхронна функція
+// import type { Metadata } from 'next';
+// import { getDictionary } from '../dictionaries';
+
+// type PageParams = {
+//   locale: 'uk' | 'en';
+// };
+
+// type PageProps = {
+//   params: PageParams | Promise<PageParams>;
+// };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getDictionary(locale);
+  const t = getDictionary(locale);
+
+  const baseUrl = 'https://construction-client-site.vercel.app';
+  const url = `${baseUrl}/${locale}`;
+
+  return {
+    title: t.metaTitle,
+    description: t.metaDescription,
+    openGraph: {
+      title: t.metaTitle,
+      description: t.metaDescription,
+      url,
+      siteName: 'Служба замовника',
+      locale: locale === 'uk' ? 'uk_UA' : 'en_US',
+      type: 'website',
+      images: [
+        {
+          url: `${baseUrl}/images/og-image.jpg`,
+          width: 1200,
+          height: 630,
+          alt: 'Служба замовника — якість, довіра, ефективність',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t.metaTitle,
+      description: t.metaDescription,
+      images: [`${baseUrl}/images/og-image.jpg`],
+    },
+  };
+}
+
+
+// import { getDictionary } from '../dictionaries';
+// import CTAButton from '../components/CTAButton';
+// import FeatureCard from '../components/FeatureCard';
+// import { Send } from 'lucide-react';
+
+// type PageParams = {
+//   locale: 'uk' | 'en';
+// };
+
+// type PageProps = {
+//   params: PageParams | Promise<PageParams>;
+// };
+
+export default async function Home({ params }: PageProps) {
+  const { locale } = await params;
+  const t = getDictionary(locale);
 
   return (
-    <>
-      <MetaHead title={t.metaTitle} description={t.metaDescription} localeCode={locale} />
-
-      <section className="px-6 py-12 sm:px-12 sm:py-20 text-gray-800">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">{t.homeTitle}</h1>
-          <p className="text-lg sm:text-xl leading-relaxed mb-8">{t.homeDescription}</p>
-          <div className="flex justify-center gap-6">
-            <CTAButton
-              href={`/${locale}/order`}
-              label={t.homeCTA}
-              icon={<Send size={20} />}
-              variant="primary"
-            />
-          </div>
+    <section className="px-6 py-12 sm:px-12 sm:py-20 text-gray-800">
+      <div className="max-w-4xl mx-auto text-center">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-6">{t.homeTitle}</h1>
+        <p className="text-lg sm:text-xl leading-relaxed mb-8">{t.homeDescription}</p>
+        <div className="flex justify-center gap-6">
+          <CTAButton
+            href={`/${locale}/order`}
+            label={t.homeCTA}
+            icon={<Send size={20} />}
+            variant="primary"
+          />
         </div>
+      </div>
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
-          <FeatureCard title={t.feature1Title} description={t.feature1Description} />
-          <FeatureCard title={t.feature2Title} description={t.feature2Description} />
-          <FeatureCard title={t.feature3Title} description={t.feature3Description} />
-          <FeatureCard title={t.feature4Title} description={t.feature4Description} />
-          {/* <div className="p-6 bg-gray-100 rounded-xl shadow">
-            <h3 className="text-xl font-semibold mb-2">{t.feature1Title}</h3>
-            <p className="text-gray-600">{t.feature1Description}</p>
-          </div>
-          <div className="p-6 bg-gray-100 rounded-xl shadow">
-            <h3 className="text-xl font-semibold mb-2">{t.feature2Title}</h3>
-            <p className="text-gray-600">{t.feature2Description}</p>
-          </div> */}
-        </div>
-      </section>
-    </>
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <FeatureCard title={t.feature1Title} description={t.feature1Description} />
+        <FeatureCard title={t.feature2Title} description={t.feature2Description} />
+        <FeatureCard title={t.feature3Title} description={t.feature3Description} />
+        <FeatureCard title={t.feature4Title} description={t.feature4Description} />
+      </div>
+    </section>
   );
 }
+
+
+
+
+
+// // app/[locale]/page.tsx
+
+// import { getDictionary } from '../dictionaries';
+// import CTAButton from '../components/CTAButton';
+// import FeatureCard from '../components/FeatureCard';
+// import { Send } from 'lucide-react';
+// import type { Metadata } from 'next';
+
+// // Типи
+// type PageParams = {
+//   locale: 'uk' | 'en';
+// };
+
+// type PageProps = {
+//   params: PageParams;
+// };
+
+// // ✅ generateMetadata: params — синхронний об'єкт
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: PageParams;
+// }): Promise<Metadata> {
+//   const t = await getDictionary(params.locale);
+
+//   const baseUrl = 'https://construction-client-site.vercel.app';
+//   const url = `${baseUrl}/${params.locale}`;
+
+//   return {
+//     title: t.metaTitle,
+//     description: t.metaDescription,
+//     openGraph: {
+//       title: t.metaTitle,
+//       description: t.metaDescription,
+//       url,
+//       siteName: 'Служба замовника',
+//       locale: params.locale === 'uk' ? 'uk_UA' : 'en_US',
+//       type: 'website',
+//       images: [
+//         {
+//           url: `${baseUrl}/images/og-image.jpg`,
+//           width: 1200,
+//           height: 630,
+//           alt: 'Служба замовника — якість, довіра, ефективність',
+//         },
+//       ],
+//     },
+//     twitter: {
+//       card: 'summary_large_image',
+//       title: t.metaTitle,
+//       description: t.metaDescription,
+//       images: [`${baseUrl}/images/og-image.jpg`],
+//     },
+//   };
+// }
+
+// // ✅ Home: params — Promise, тому використовуємо async/await
+// export default async function Home({
+//   params,
+// }: PageProps) {
+//  const t = await getDictionary(params.locale);
+
+//   return (
+//     <section className="px-6 py-12 sm:px-12 sm:py-20 text-gray-800">
+//       <div className="max-w-4xl mx-auto text-center">
+//         <h1 className="text-4xl sm:text-5xl font-bold mb-6">{t.homeTitle}</h1>
+//         <p className="text-lg sm:text-xl leading-relaxed mb-8">{t.homeDescription}</p>
+//         <div className="flex justify-center gap-6">
+//           <CTAButton
+//             href={`/${params.locale}/order`}
+//             label={t.homeCTA}
+//             icon={<Send size={20} />}
+//             variant="primary"
+//           />
+//         </div>
+//       </div>
+
+//       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
+//         <FeatureCard title={t.feature1Title} description={t.feature1Description} />
+//         <FeatureCard title={t.feature2Title} description={t.feature2Description} />
+//         <FeatureCard title={t.feature3Title} description={t.feature3Description} />
+//         <FeatureCard title={t.feature4Title} description={t.feature4Description} />
+//       </div>
+//     </section>
+//   );
+// }
+

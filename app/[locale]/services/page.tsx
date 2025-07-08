@@ -3,13 +3,13 @@
 import { getDictionary } from "@/app/dictionaries";
 import { Locale } from "@/i18n-config";
 
-type Props = {
-  params: Promise<{ locale: Locale }>;
+type ServicesPageProps = {
+  params: { locale: 'uk' | 'en' };
 };
 
-export default async function ServicesPage({ params }: Props) {
-  const { locale } = await params;
-  const dict = await getDictionary(locale);
+export default function ServicesPage({ params }: ServicesPageProps) {
+  const { locale } = params;
+  const dict = getDictionary(locale);
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">

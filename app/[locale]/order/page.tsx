@@ -3,11 +3,11 @@
 import { getDictionary } from '../../dictionaries';
 
 type OrderPageProps = {
-  params: Promise<{ locale: 'uk' | 'en' }>;
+  params: { locale: 'uk' | 'en' };
 };
 
 export default async function OrderPage({ params }: OrderPageProps) {
-  const { locale } = await params;
+  const { locale } = params;
   const t = await getDictionary(locale);
 
   return (
