@@ -22,9 +22,18 @@ type HeaderProps = {
 export default function Header({ locale, t }: HeaderProps) {
   return (
     <header className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
-      <Link href={`/${locale}`} className="text-xl font-bold">
+      {/* <Link href={`/${locale}`} className="text-xl font-bold">
         {t.siteName}
-      </Link>
+      </Link> */}
+
+      <Link href={`/${locale}`} className="flex items-center gap-2">
+  <img
+    src="/logo.png"
+    alt="Логотип"
+    className="w-10 h-10 object-contain"
+  />
+  <span className="text-xl font-bold">{t.siteName}</span>
+</Link>
 
       <nav className="flex gap-4 items-center">
         {/* бургер на мобілках */}
