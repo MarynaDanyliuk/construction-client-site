@@ -4,6 +4,8 @@ import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import Script from 'next/script'; // ← для аналітики (наприклад, Google Analytics)
 
+import StructuredData from './components/StructuredData';
+
 // Метадані для SEO, соцмереж і верифікації
 export const metadata: Metadata = {
   title: 'Служба замовника — супровід будівництва',
@@ -17,16 +19,37 @@ export const metadata: Metadata = {
     description: 'Якісний технічний супровід будівельних проєктів',
     type: 'website',
     locale: 'uk_UA',
-    url: 'https://твой-сайт.uk',
+    url: 'https://construction-client-site.vercel.app/uk',
     images: [
       {
-        url: 'https://твой-сайт.ua/preview.jpg',
+        url: 'https://construction-client-site.vercel.app/images/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Служба замовника — прев’ю',
       },
     ],
   },
+};
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Служба замовника",
+  "url": "https://construction-client-site.vercel.app",
+  "logo": "https://construction-client-site.vercel.app/logo.png",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+380XXXXXXXXX",
+      "contactType": "customer service",
+      "areaServed": "UA",
+      "availableLanguage": ["Ukrainian", "English"]
+    }
+  ],
+  "sameAs": [
+    "https://facebook.com/example",
+    "https://t.me/example"
+  ]
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -40,7 +63,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
         />
         <link rel="icon" href="/favicon.ico" />
-        <script
+
+
+        {/* JSON-LD Schema.org */}
+        <StructuredData data={orgSchema} scriptKey="org-schema" />
+      </head>
+      <body className={`${inter.variable} ${playfair.variable} font-sans`}>
+        {/* Theme */}
+                <script
           dangerouslySetInnerHTML={{
             __html: `
         (function() {
@@ -59,8 +89,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       `,
           }}
         />
-      </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans`}>
         {children}
         {/* Аналітика (приклад для Google Analytics 4) */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX" />

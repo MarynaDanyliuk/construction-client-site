@@ -2,6 +2,7 @@
 
 import { getDictionary } from "@/app/dictionaries";
 import { Locale } from "@/i18n-config";
+import MetaHead from "@/app/components/MetaHead";
 
 type ServicesPageProps = {
   params: { locale: 'uk' | 'en' };
@@ -12,7 +13,21 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
   const dict = getDictionary(locale);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12">
+    <>
+      <MetaHead
+        title={
+          locale === 'uk'
+            ? 'Служба замовника — Послуги'
+            : 'Construction Client Service — Services'
+        }
+        description={
+          locale === 'uk'
+            ? 'Повний перелік послуг супроводу будівництва: аудит, управління проєктом, контроль якості.'
+            : 'Our full range of construction support services: audits, project management, quality control.'
+        }
+        localeCode={locale}
+      />
+    <section className="max-w-5xl mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-4">{dict.services.title}</h1>
       <p className="text-gray-700 mb-8">{dict.services.description}</p>
       <div className="grid gap-6 md:grid-cols-2">
@@ -49,6 +64,8 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
           </p>
         </div>
       </div>
-    </div>
+    </section>
+    </>
+    
   );
 }

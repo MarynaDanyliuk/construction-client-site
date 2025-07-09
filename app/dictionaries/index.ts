@@ -14,10 +14,3 @@ export function getDictionary(locale: 'uk' | 'en'): Dictionary {
 }
 
 
-// import { ua } from "./ua";
-// import { en } from "./en";
-
-// export const dictionaries = {
-//   ua,
-//   en,
-// };

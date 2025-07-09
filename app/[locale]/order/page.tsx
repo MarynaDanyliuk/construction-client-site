@@ -1,6 +1,7 @@
 // app/[locale]/order/page.tsx
 
 import { getDictionary } from '../../dictionaries';
+import MetaHead from '@/app/components/MetaHead';
 
 type OrderPageProps = {
   params: { locale: 'uk' | 'en' };
@@ -11,6 +12,20 @@ export default async function OrderPage({ params }: OrderPageProps) {
   const t = getDictionary(locale);
 
   return (
+    <>
+       <MetaHead
+        title={
+          locale === 'uk'
+            ? 'Служба замовника — Замовлення послуги'
+            : 'Construction Client Service — Order Service'
+        }
+        description={
+          locale === 'uk'
+            ? 'Замовте консультацію або послугу супроводу будівництва онлайн прямо зараз.'
+            : 'Order a consultation or construction support service online now.'
+        }
+        localeCode={locale}
+      />
     <div className="max-w-2xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">{t.orderTitle || 'Замовити послугу'}</h1>
       <p className="text-gray-700 dark:text-gray-300 mb-6">
@@ -56,5 +71,6 @@ export default async function OrderPage({ params }: OrderPageProps) {
         </button>
       </form>
     </div>
+    </>
   );
 }
