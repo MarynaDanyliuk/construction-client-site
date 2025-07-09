@@ -65,10 +65,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
 
 
-        {/* JSON-LD Schema.org */}
-        <StructuredData data={orgSchema} scriptKey="org-schema" />
+     
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
+           {/* JSON-LD Schema.org */}
+        <StructuredData data={orgSchema} scriptKey="org-schema" />
         {/* Theme */}
                 <script
           dangerouslySetInnerHTML={{
