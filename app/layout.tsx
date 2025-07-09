@@ -70,6 +70,32 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
            {/* JSON-LD Schema.org */}
         <StructuredData data={orgSchema} scriptKey="org-schema" />
+         <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Служба замовника",
+        "url": "https://construction-client-site.vercel.app",
+        "logo": "https://construction-client-site.vercel.app/logo.png",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+380XXXXXXXXX",
+            "contactType": "customer service",
+            "areaServed": "UA",
+            "availableLanguage": ["Ukrainian", "English"]
+          }
+        ],
+        "sameAs": [
+          "https://facebook.com/example",
+          "https://t.me/example"
+        ]
+      })
+    }}
+  />
+
         {/* Theme */}
                 <script
           dangerouslySetInnerHTML={{
