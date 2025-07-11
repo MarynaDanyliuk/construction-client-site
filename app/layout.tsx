@@ -1,5 +1,5 @@
 import './globals.css';
-import { inter, poppins, playfair } from './fonts'
+import { inter, poppins, playfair, cormorant, josefin  } from './fonts'
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
 import Script from 'next/script'; // ← для аналітики (наприклад, Google Analytics)
@@ -54,7 +54,8 @@ const orgSchema = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="uk" suppressHydrationWarning className={`${inter.variable} ${playfair.variable} font-sans`}>
+    <html lang="uk" suppressHydrationWarning 
+       className={`${inter.variable} ${poppins.variable} ${playfair.variable} ${cormorant.variable} ${josefin.variable} font-sans`}>
       <head>
         {/* Google Fonts (опційно) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -67,7 +68,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
      
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans`}>
+      <body className={`${inter.variable} ${poppins.variable} ${playfair.variable} ${cormorant.variable} ${josefin.variable} font-sans`}>
            {/* JSON-LD Schema.org */}
         <StructuredData data={orgSchema} scriptKey="org-schema" />
          <script
@@ -124,7 +125,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXX');
+            gtag('config', 'G-G6QN5B0S2P');
           `}
         </Script>
       </body>
